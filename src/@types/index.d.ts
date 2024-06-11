@@ -5,3 +5,15 @@ export type AsyncReqHandler = (
 	res: Response,
 	next: NextFunction,
 ) => Promise<void>
+
+export interface ServerResponse {
+	success: boolean;
+	statusCode: number;
+	message: string;
+	data?: unknown;
+	stack?: string;
+	errorSources?: Array<{
+		path: string;
+		message: string;
+	}>
+}
