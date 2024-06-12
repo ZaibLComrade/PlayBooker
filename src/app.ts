@@ -7,7 +7,7 @@ const app: Express = express();
 
 app.use(express.json());
 
-app.use("/api", router)
+app.use("/api", router);
 
 app.all("/health", (req, res) => {
 	res.status(200).json({
@@ -20,8 +20,8 @@ app.all("*", (req, res) => {
 		success: false,
 		statusCode: 404,
 		message: "Not Found",
-	})
-})
+	});
+});
 
 app.use(globalErrorHandler);
 

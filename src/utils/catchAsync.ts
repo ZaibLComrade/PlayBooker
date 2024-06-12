@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from "express";
-import { AsyncReqHandler } from "../@types";
+import { type AsyncReqHandler } from "../@types";
 
 const catchAsync = (reqHandler: AsyncReqHandler) => {
 	return (req: Request, res: Response, next: NextFunction) => {

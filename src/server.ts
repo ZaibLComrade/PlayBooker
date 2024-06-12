@@ -2,11 +2,13 @@ import type { Server } from "http";
 import app from "./app";
 import config from "./config";
 import { connect } from "mongoose";
+/* eslint-disable no-console */
 
 let server: Server;
 
-/* eslint-disable */
-const main = async () => {
+type Main = () => Promise<void>;
+const main: Main = async () => {
+	console.log(config);
 	try {
 		await connect(config.db_uri, { dbName: config.db_name });
 		console.info(
@@ -19,11 +21,11 @@ const main = async () => {
 		console.error(err);
 	}
 };
-main();
+main().catch(() => {})
 
 process.on("unhandledRejection", () => {
 	console.log("Unhadled rejection detected. Shutting down...");
-	if (server) {
+	if (server !== undefined) {
 		server.close(() => {
 			process.exit(1);
 		});

@@ -1,8 +1,9 @@
 type GetURI = (uri: string, username: string, password: string) => string;
 const getUri: GetURI = (uri, username, password) => {
-	uri.replace("<username>", username);
-	uri.replace("<password>", password);
-	return uri;
+	let newUri = uri;
+	newUri = newUri.replace("<username>", username);
+	newUri = newUri.replace("<password>", password);
+	return newUri;
 };
 
 export default getUri;

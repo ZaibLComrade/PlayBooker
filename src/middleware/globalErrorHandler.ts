@@ -1,5 +1,5 @@
 import type { ErrorRequestHandler } from "express";
-import { ServerResponse } from "../@types";
+import { type ServerResponse } from "../@types";
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
 	const error: ServerResponse = {

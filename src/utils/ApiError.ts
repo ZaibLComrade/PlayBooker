@@ -6,7 +6,7 @@ class ApiError extends Error {
 		public stack: string = ""
 	) {
 		super(message);
-		if (!stack) {
+		if (stack === "") {
 			Error.captureStackTrace(this, this.constructor);
 		}
 	}
