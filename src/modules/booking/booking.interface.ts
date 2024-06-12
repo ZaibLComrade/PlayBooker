@@ -4,6 +4,7 @@ import type {isBooked} from "./booking.contant";
 type IsBooked = typeof isBooked[number];
 
 export interface IBooking {
+	_id?: Types.ObjectId;
 	date: Date;
 	startTime: string;
 	endTime: string;

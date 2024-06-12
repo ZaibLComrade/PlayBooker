@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { getTimeArr } from "./booking.utils";
+import {timeRegex} from "./booking.contant";
 
-const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
 export const createBookingSchema = z
 	.object({
 		facility: z.string().regex(/^[0-9a-fA-F]{24}$/, {
