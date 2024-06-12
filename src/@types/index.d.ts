@@ -17,3 +17,6 @@ export interface ServerResponse {
 		message: string;
 	}>
 }
+
+// Service functions
+export type CreateDoc<T> = (payload: T) => Promise<T | null>

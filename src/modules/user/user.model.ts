@@ -1,11 +1,23 @@
 import { Schema, model } from "mongoose";
+import type { Model } from "mongoose";
 import type { IUser } from "./user.interface";
 import { role } from "./user.contant";
+import bcrypt from "bcrypt";
+import config from "../../config";
 
-const userSchema = new Schema<IUser>({
+interface UserModel extends Model<IUser> {
+	doesPassMatch: (password: string, hashed: string) => Promise<boolean>;
+}
+
+const userSchema = new Schema<IUser, UserModel>({
 	name: {
 		type: String,
 		required: [true, "Name is required"],
+	},
+	password: {
+		type: String,
+		required: [true, "Passwrd is required"],
+		select: false,
 	},
 	email: {
 		type: String,
@@ -28,5 +40,17 @@ const userSchema = new Schema<IUser>({
 	},
 });
 
-const User = model<IUser>("User", userSchema);
+userSchema.static("doesPassMatch", async (
+	password: string,
+	hashed: string
+) => {
+	return await bcrypt.compare(password, hashed);
+});
+
+userSchema.pre("save", async function (next) {
+	this.password = await bcrypt.hash(this.password, config.hash_salt);
+	next();
+});
+
+const User = model<IUser, UserModel>("User", userSchema);
 export default User;
