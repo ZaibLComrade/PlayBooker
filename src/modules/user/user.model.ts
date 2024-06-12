@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import type { IUser } from "./user.interface";
+import { role } from "./user.contant";
 
 const userSchema = new Schema<IUser>({
 	name: {
@@ -19,7 +20,7 @@ const userSchema = new Schema<IUser>({
 	role: {
 		type: String,
 		required: [true, "Role is required"],
-		enum: ["admin", "user"],
+		enum: role,
 	},
 	address: {
 		type: String,
