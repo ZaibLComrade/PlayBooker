@@ -8,7 +8,6 @@ let server: Server;
 
 type Main = () => Promise<void>;
 const main: Main = async () => {
-	console.log(config);
 	try {
 		await connect(config.db_uri, { dbName: config.db_name });
 		console.info(
