@@ -12,7 +12,7 @@ export const loginService: LoginService = async (payload) => {
 	if (user === null) throw new ApiError(404, "No Data Found");
 
 	const { password, ...userData } = user;
-	const match = await User.doesPassMatch(payload.password, password);
+	const match = await User.doesPassMatch(payload.password, password ?? "");
 	if (!match) throw new ApiError(403, "Invalid Password");
 
 	const jwtPayload = {

@@ -21,8 +21,13 @@ const facilitySchema = new Schema<IFacility>({
 	isDeleted: {
 		type: Boolean,
 		default: false,
-	}
-})
+	},
+});
+
+facilitySchema.pre(["find", "findOne"], function (next) {
+	this.find({ isDeleted: { $ne: true } }).catch(() => {});
+	next();
+});
 
 const Facility = model<IFacility>("Facility", facilitySchema);
 export default Facility;

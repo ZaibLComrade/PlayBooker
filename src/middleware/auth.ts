@@ -5,10 +5,11 @@ import jwt from "jsonwebtoken";
 import type { Role } from "../modules/user/user.interface";
 import type { RequestHandler } from "express";
 import type { JwtPayload } from "jsonwebtoken";
+import type { CustomRequest } from "../@types";
 
 type Auth = (...requiredRole: Role[]) => RequestHandler;
 export const auth: Auth = (...requiredRole) => {
-	return catchAsync(async (req, res, next) => {
+	return catchAsync(async (req: CustomRequest, res, next) => {
 		const authData = req.headers.authorization ?? "";
 		const [, token] = authData.split(" ");
 		if (token === undefined) {
@@ -24,6 +25,7 @@ export const auth: Auth = (...requiredRole) => {
 			throw new ApiError(403, "Access Forbidden");
 		}
 
+		req.user = decode;
 		next();
 	});
 };

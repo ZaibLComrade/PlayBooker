@@ -9,7 +9,10 @@ interface UserModel extends Model<IUser> {
 	doesPassMatch: (password: string, hashed: string) => Promise<boolean>;
 }
 
-const userSchema = new Schema<IUser, UserModel>({
+interface SchemaIUser extends IUser {
+	password: string;
+}
+const userSchema = new Schema<SchemaIUser, UserModel>({
 	name: {
 		type: String,
 		required: [true, "Name is required"],
@@ -52,5 +55,5 @@ userSchema.pre("save", async function (next) {
 	next();
 });
 
-const User = model<IUser, UserModel>("User", userSchema);
+const User = model<SchemaIUser, UserModel>("User", userSchema);
 export default User;

@@ -1,4 +1,4 @@
-import type { CreateDoc } from "@/@types";
+import type { CreateDoc } from "../../../@types";
 import type { IFacility } from "../facility.interface";
 import Facility from "../facility.model";
 
