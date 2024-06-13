@@ -6,3 +6,5 @@ export const createFacilitySchema = z.object({
 	pricePerHour: z.number(),
 	location: z.string(),
 })
+
+export const updateFacilitySchema = createFacilitySchema.partial();

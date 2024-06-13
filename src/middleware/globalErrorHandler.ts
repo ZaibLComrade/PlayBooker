@@ -9,6 +9,8 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
 		errorSources: err?.errorsources ?? [],
 		stack: err?.stack ?? "",
 	};
+	
+	console.log(err);
 
 	res.status(error.statusCode).json(error);
 	next();
