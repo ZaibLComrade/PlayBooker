@@ -8,6 +8,8 @@ export const signUp: RequestHandler = catchAsync(async (req, res, next) => {
 	const payload: IUser = req.body;
 	const data = await createUser(payload);
 	if (data === null) throw new ApiError(400, "Failed to register user");
+	data.password = undefined;
+	data.__v = undefined;
 
 	res.status(200).json({
 		success: true,

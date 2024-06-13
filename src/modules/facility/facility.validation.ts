@@ -5,5 +5,4 @@ export const createFacilitySchema = z.object({
 	description: z.string(),
 	pricePerHour: z.number(),
 	location: z.string(),
-	isDeleted: z.boolean(),
 })
