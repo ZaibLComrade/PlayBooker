@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express";
-import { JwtPayload } from "jsonwebtoken";
+import type { JwtPayload } from "jsonwebtoken";
 
 export type AsyncReqHandler = (
-	req: Request,
+	req: CustomRequest,
 	res: Response,
 	next: NextFunction
 ) => Promise<void>;

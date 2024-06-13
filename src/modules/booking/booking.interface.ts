@@ -5,22 +5,12 @@ type IsBooked = typeof isBooked[number];
 
 export interface IBooking {
 	_id?: Types.ObjectId;
-	date: Date;
-	startTime: string;
-	endTime: string;
-	user: Types.ObjectId;
-	facility: Types.ObjectId;
-	payableAmount: number;
-	isBooked: IsBooked;
-}
-
-
-export interface Payload {
+	__v?: number;
 	date: string;
 	startTime: string;
 	endTime: string;
-	user: string;
-	facility: string;
-	payableAmount: number;
-	isBooked: IsBooked;
+	user?: Types.ObjectId;
+	facility: Types.ObjectId;
+	payableAmount?: number;
+	isBooked?: IsBooked;
 }

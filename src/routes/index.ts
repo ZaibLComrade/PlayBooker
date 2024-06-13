@@ -2,6 +2,7 @@ import { Router } from "express";
 import type { RequestHandler } from "express";
 import authRouter from "../modules/auth/auth.route";
 import facilityRouter from "../modules/facility/facility.route";
+import bookingRouter from "../modules/booking/booking.route";
 
 interface Route {
 	path: string;
@@ -19,6 +20,10 @@ const routes: Route[] = [
 		path: "/facility",
 		route: facilityRouter,
 	},
+	{
+		path: "/bookings",
+		route: bookingRouter,
+	}
 ];
 
 routes.forEach(({ path, route }: Route) => {
