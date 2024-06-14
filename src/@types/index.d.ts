@@ -27,7 +27,7 @@ export interface CustomRequest extends Request {
 
 // Service functions
 export interface SearchQuery {
-	[key: string]: string;
+	[key?: string]: string;
 	_id?: string;
 	user?: string;
 }

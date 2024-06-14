@@ -3,6 +3,7 @@ import type { RequestHandler } from "express";
 import authRouter from "../modules/auth/auth.route";
 import facilityRouter from "../modules/facility/facility.route";
 import bookingRouter from "../modules/booking/booking.route";
+import checkRouter from "../modules/check";
 
 interface Route {
 	path: string;
@@ -23,7 +24,11 @@ const routes: Route[] = [
 	{
 		path: "/bookings",
 		route: bookingRouter,
-	}
+	},
+	{
+		path: "/check-availability",
+		route: checkRouter,
+	},
 ];
 
 routes.forEach(({ path, route }: Route) => {
