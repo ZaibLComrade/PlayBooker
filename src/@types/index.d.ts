@@ -13,11 +13,13 @@ export interface ServerResponse {
 	message: string;
 	data?: unknown;
 	stack?: string;
-	errorSources?: Array<{
-		path: string;
+	errorMessages?: Array<{
+		path: string | number;
 		message: string;
 	}>;
 }
+
+export type ErrorHandler<T> = (err: T) => ServerResponse;
 
 export interface CustomRequest extends Request {
 	user?: JwtPayload;

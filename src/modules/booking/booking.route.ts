@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getBooking, postBooking } from "./controller";
+import { deleteBooking, getBooking, postBooking } from "./controller";
 import { validateRequest } from "../../middleware/validateRequest";
 import { auth } from "../../middleware/auth";
 import { createBookingSchema } from "./booking.validation";
@@ -13,5 +13,6 @@ bookingRouter.post(
 	auth("user"),
 	postBooking
 );
+bookingRouter.delete("/:id", auth("user"), deleteBooking);
 
 export default bookingRouter;

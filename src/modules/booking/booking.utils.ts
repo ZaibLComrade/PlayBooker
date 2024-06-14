@@ -11,10 +11,14 @@ type GetPayableAmount = (
 	endTime: string,
 	pricePerHour: number
 ) => number;
-export const getPayableAmount: GetPayableAmount = (startTime, endTime, pricePerHour) => {
+export const getPayableAmount: GetPayableAmount = (
+	startTime,
+	endTime,
+	pricePerHour
+) => {
 	const [h1, m1] = getTimeArr(startTime);
 	const [h2, m2] = getTimeArr(endTime);
 	const t1 = h1 + m1 / 60;
 	const t2 = h2 + m2 / 60;
-	return (t2 - t1) * pricePerHour
+	return (t2 - t1) * pricePerHour;
 };
