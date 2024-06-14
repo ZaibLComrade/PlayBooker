@@ -2,8 +2,6 @@ import { Schema, model } from "mongoose";
 import type { IBooking } from "./booking.interface";
 import { isBooked, timeRegex } from "./booking.contant";
 
-// TODO: Add validator funcs for dates
-
 const bookingSchema = new Schema<IBooking>({
 	facility: {
 		type: Schema.Types.ObjectId,

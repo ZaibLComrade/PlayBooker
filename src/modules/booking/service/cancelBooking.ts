@@ -7,5 +7,5 @@ export const cancelBooking: DeleteDoc<IBooking> = async (query) => {
 		query,
 		{ isBooked: "cancelled" },
 		{ new: true }
-	);
+	).populate("facility", "-__v");
 };

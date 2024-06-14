@@ -14,7 +14,7 @@ import {
 
 const facilityRouter = Router();
 
-facilityRouter.get("/:id?", auth(), getFacility);
+facilityRouter.get("/:id?", getFacility);
 facilityRouter.post(
 	"/",
 	validateRequest(createFacilitySchema),

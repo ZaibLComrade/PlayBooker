@@ -6,7 +6,7 @@ import { createBookingSchema } from "./booking.validation";
 
 const bookingRouter = Router();
 
-bookingRouter.get("/", auth("user"), getBooking);
+bookingRouter.get("/", auth(), getBooking);
 bookingRouter.post(
 	"/",
 	validateRequest(createBookingSchema),

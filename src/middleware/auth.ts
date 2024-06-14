@@ -13,7 +13,7 @@ export const auth: Auth = (...requiredRole) => {
 		const authData = req.headers.authorization ?? "";
 		const [, token] = authData.split(" ");
 		if (token === undefined) {
-			throw new ApiError(403, "Access Forbidden");
+			throw new ApiError(401, "You have no access to this route");
 		}
 
 		const decode = jwt.verify(token, config.access_secret) as JwtPayload;
