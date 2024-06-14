@@ -8,7 +8,7 @@ export const postFacility: RequestHandler = catchAsync(async (req, res) => {
 	const payload: IFacility = req.body;
 	const data = await createFacility(payload);
 
-	if (data === null) throw new ApiError(404, "No Data Found");
+	if (data === null) throw new ApiError(400, "Failed to create facility");
 	data.__v = undefined;
 
 	res.status(200).json({

@@ -27,6 +27,7 @@ export interface CustomRequest extends Request {
 export interface SearchQuery {
 	[key: string]: string;
 	_id?: string;
+	user?: string;
 }
 export type FetchDoc<T> = (query: SearchQuery) => Promise<T[] | null>
 export type CreateDoc<T> = (payload: T) => Promise<T | null>;

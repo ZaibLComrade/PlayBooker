@@ -22,7 +22,7 @@ export const auth: Auth = (...requiredRole) => {
 			requiredRole.length !== 0 &&
 			!requiredRole.includes(decode.role as Role)
 		) {
-			throw new ApiError(403, "Access Forbidden");
+			throw new ApiError(401, "You have no access to this route");
 		}
 
 		req.user = decode;
