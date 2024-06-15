@@ -4,8 +4,8 @@
 	"description": "Express.js backend for a sport facility booking platform.",
 	"main": "dist/server.js",
 	"scripts": {
-		"start": "node dist/server.js",
-		"start:watch": "nodemon dist/server.js",
+		"start": "NODE_ENV=production node dist/server.js",
+		"start:watch": "NODE_ENV=development nodemon dist/server.js",
 		"build": "tsc",
 		"build:watch": "tsc -w",
 		"dev": "concurrently --kill-others \"npm run start:watch\" \"npm run build:watch\"",

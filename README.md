@@ -56,6 +56,16 @@ REFRESH_SECRET=
 REFRESH_EXPIRES_IN=30d
 ```
 
+## Commands
+
+`npm start`: Runs server in production mode.
+`npm run dev`: Runs server in development mode with hot-reloading enabled.
+`npm run build`: Build application for production deployment (`dist`).
+`npm run build:watch`: Build application for production deployment in watch mode.
+`npm run lint`: Checks for errors and code inconsistency with eslint.
+`npm run lint:fix`: Solves fixable errors and inconsistencies with eslint,
+npm run format: Formats code with prettier
+
 ## Project Structure
 
 ### Overview
