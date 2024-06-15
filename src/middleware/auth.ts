@@ -7,6 +7,7 @@ import type { RequestHandler } from "express";
 import type { JwtPayload } from "jsonwebtoken";
 import type { CustomRequest } from "../@types";
 
+// Verifies request for admin and user roles and modifies request with verified user info
 type Auth = (...requiredRole: Role[]) => RequestHandler;
 export const auth: Auth = (...requiredRole) => {
 	return catchAsync(async (req: CustomRequest, res, next) => {

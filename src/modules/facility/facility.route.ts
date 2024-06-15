@@ -12,6 +12,7 @@ import {
 	updateFacilitySchema,
 } from "./facility.validation";
 
+// Router
 const facilityRouter = Router();
 
 facilityRouter.get("/:id?", getFacility);

@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import type { JwtPayload } from "jsonwebtoken";
 
+// Signs jwt token
 type CreateToken = (
 	payload: JwtPayload,
 	secret: string,

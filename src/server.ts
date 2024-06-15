@@ -7,6 +7,8 @@ import { connect } from "mongoose";
 let server: Server;
 
 type Main = () => Promise<void>;
+
+// Connects to database and starts server
 const main: Main = async () => {
 	try {
 		await connect(config.db_uri, { dbName: config.db_name });
@@ -20,8 +22,9 @@ const main: Main = async () => {
 		console.error(err);
 	}
 };
-main().catch(() => {})
+main().catch(() => {});
 
+// Shut down server on unexpected event;
 process.on("unhandledRejection", () => {
 	console.log("Unhadled rejection detected. Shutting down...");
 	if (server !== undefined) {

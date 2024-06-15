@@ -7,6 +7,7 @@ import ApiError from "../../utils/ApiError";
 
 const checkRouter = Router();
 
+// Checks for booking availability
 checkRouter.get(
 	"/",
 	catchAsync(async (req, res, next) => {

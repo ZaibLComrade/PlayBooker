@@ -7,6 +7,7 @@ export type AsyncReqHandler = (
 	next: NextFunction
 ) => Promise<void>;
 
+// Bot error and success response
 export interface ServerResponse {
 	success: boolean;
 	statusCode: number;
@@ -25,12 +26,13 @@ export interface CustomRequest extends Request {
 	user?: JwtPayload;
 }
 
-// Service functions
 export interface SearchQuery {
 	[key?: string]: string;
 	_id?: string;
 	user?: string;
 }
+
+// Services
 export type FetchDoc<T> = (query: SearchQuery) => Promise<T[] | null>
 export type CreateDoc<T> = (payload: T) => Promise<T | null>;
 export type UpdateDoc<T> = (

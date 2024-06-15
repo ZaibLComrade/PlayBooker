@@ -11,8 +11,10 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+// Main route
 app.use("/api", router);
 
+// Checks server
 app.all("/health", (req, res) => {
 	res.status(200).json({
 		message: "Server is running",

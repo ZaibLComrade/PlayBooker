@@ -12,6 +12,7 @@ interface Route {
 
 const router = Router();
 
+// All available routes
 const routes: Route[] = [
 	{
 		path: "/auth",

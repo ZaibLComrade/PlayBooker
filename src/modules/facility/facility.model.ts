@@ -24,6 +24,7 @@ const facilitySchema = new Schema<IFacility>({
 	},
 });
 
+// Filters deleted documents
 facilitySchema.pre(["find", "findOne"], function (next) {
 	this.find({ isDeleted: { $ne: true } }).catch(() => {});
 	next();
