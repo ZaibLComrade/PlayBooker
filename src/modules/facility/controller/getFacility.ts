@@ -11,7 +11,7 @@ export const getFacility: RequestHandler = catchAsync(
 		if (id !== "") query._id = id;
 
 		const data = await fetchFacility(query);
-		if (data === null || data.length === 0)
+		if (data === null)
 			throw new ApiError(404, "Data Not Found");
 
 		res.status(200).json({
