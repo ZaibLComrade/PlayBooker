@@ -9,7 +9,7 @@ export const getBooking = catchAsync(async (req, res, next) => {
 	if (user?.role === "user") query.user = user._id;
 
 	const data = await fetchBooking(query);
-	if (data === null || data.length === 0)
+	if (data === null)
 		throw new ApiError(404, "No Data Found");
 	res.status(200).json({
 		success: true,
